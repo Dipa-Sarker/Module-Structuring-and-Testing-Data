@@ -22,12 +22,18 @@
 // execute the code to ensure all tests pass.
 
 function getCardValue(card) {
-  if (card === "A♠") {
+  const rank = card.slice(0, -1);
+  if (rank === "A") {
     return 11;
   }
-  else if (card === "J♣", "Q♦", "K♦") {
+  else if (rank === "J" || rank=== "Q" || rank === "K") {
     return 10;
   }
+
+ else if (rank >= 2 && rank <= 10) {
+  return Number(rank);
+}
+else ()
 }
 
 
@@ -42,9 +48,29 @@ const ace = getCardValue("A♠");
 assertEquals(getCardValue("A♠"), 11);
 console.log (getCardValue("A♠"));
 
-const face = getCardValue("J♣", "Q♦", "K♦");
-assertEquals(getCardValue("J♣", "Q♦", "K♦"), 10);
-console.log (getCardValue("J♣", "Q♦", "K♦"));
+const faceJ = getCardValue("J♣");
+assertEquals(getCardValue("J♣"), 10);
+console.log (getCardValue("J♣"));
+
+const faceQ = getCardValue("Q♦");
+assertEquals(getCardValue("Q♦"), 10);
+console.log (getCardValue("Q♦"));
+
+const faceK = getCardValue("K♦");
+assertEquals(getCardValue("K♦"), 10);
+console.log (getCardValue("K♦"));
+
+const number5 = getCardValue("5♥");
+assertEquals(getCardValue("5♥"), 5);
+console.log (getCardValue("5♥"));
+
+const number10 = getCardValue("10♥");
+assertEquals(getCardValue("10♥"), 10);
+console.log (getCardValue("10♥"));
+
+const number10 = getCardValue("10♥");
+assertEquals(getCardValue("10♥"), 10);
+console.log (getCardValue("10♥"));
 
 // Handling invalid cards
 try {
