@@ -45,9 +45,17 @@ const invalid = getAngleType(0);
 assertEquals(invalid, "Invalid angle");
 console.log (getAngleType(0));
 
+const invalid0 = getAngleType(-10);
+assertEquals(invalid, "Invalid angle");
+console.log (getAngleType(-10));
+
 const invalid1 = getAngleType(360);
 assertEquals(invalid1, "Invalid angle");
 console.log (getAngleType(360));
+
+const invalid2 = getAngleType(900);
+assertEquals(invalid2, "Invalid angle");
+console.log (getAngleType(900));
 
 const right = getAngleType(90);
 assertEquals(right, "Right angle");
