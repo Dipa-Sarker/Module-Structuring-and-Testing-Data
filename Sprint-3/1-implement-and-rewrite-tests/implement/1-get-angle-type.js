@@ -77,6 +77,8 @@ const reflex = getAngleType(240);
 assertEquals(reflex, "Reflex angle");
 console.log (getAngleType(240));
 
+module.exports = getAngleType;
+
 // The line below allows us to load the getAngleType function into tests in other files.
 // This will be useful in the "rewrite tests with jest" step.
 //module.exports = getAngleType;
