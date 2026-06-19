@@ -23,6 +23,15 @@
 
 function getCardValue(card) {
   const rank = card.slice(0, -1);
+  const suit = card.slice(-1);
+
+  const validRank = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+  const validSuit = ["♠","♥","♦","♣"];
+
+ if (!validRank.includes(rank) || !validSuit.includes(suit)) {
+  throw new Error("Invalid Card");
+  }
+
   if (rank === "A") {
     return 11;
   }
@@ -32,10 +41,8 @@ function getCardValue(card) {
 
  else if (rank >= 2 && rank <= 10) {
   return Number(rank);
+  } 
 }
-else ()
-}
-
 
 function assertEquals(actualOutput, targetOutput) {
   console.assert(
@@ -68,19 +75,39 @@ const number10 = getCardValue("10♥");
 assertEquals(getCardValue("10♥"), 10);
 console.log (getCardValue("10♥"));
 
-const number10 = getCardValue("10♥");
-assertEquals(getCardValue("10♥"), 10);
-console.log (getCardValue("10♥"));
-
-// Handling invalid cards
 try {
-  getCardValue("invalid");
-
-  // This line will not be reached if an error is thrown as expected
+  getCardValue("10");
   console.error("Error was not thrown for invalid card 😢");
 } catch (e) {
-  console.log("Error thrown for invalid card 🎉");
+ console.log("Error thrown for invalid card 🎉");
+}
+
+try {
+  getCardValue("A");
+  console.error("Error was not thrown for invalid card 😢");
+} catch (e) {
+ console.log("Error thrown for invalid card 🎉");
+}
+
+try {
+  getCardValue("10x");
+  console.error("Error was not thrown for invalid card 😢");
+} catch (e) {
+ console.log("Error thrown for invalid card 🎉");
+}
+
+try {
+  getCardValue("JK");
+  console.error("Error was not thrown for invalid card 😢");
+} catch (e) {
+ console.log("Error thrown for invalid card 🎉");
+}
+
+try {
+  getCardValue("Qxx");
+  console.error("Error was not thrown for invalid card 😢");
+} catch (e) {
+ console.log("Error thrown for invalid card 🎉");
 }
 
 module.exports = getCardValue;
-// What other invalid card cases can you think of?
